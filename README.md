@@ -1,7 +1,7 @@
 # Radicale IMAP authentication plugin
 
 IMAP authentication plugin for [Radicale](http://radicale.org/).
-This is a simplification fork of [https://github.com/Unrud/RadicaleIMAP](RadicaleIMAP).
+This is a simplification fork of [RadicaleIMAP](https://github.com/Unrud/RadicaleIMAP).
 
 ## Installation
 
