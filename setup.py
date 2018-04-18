@@ -1,22 +1,27 @@
-#!/usr/bin/env python3
+from setuptools import find_packages, setup
 
-import os
-import re
-
-from setuptools import setup
-
-init_path = os.path.join(os.path.dirname(__file__),
-                         "radicale_imap", "__init__.py")
-with open(init_path) as f:
-    version = re.search(r'VERSION = "([^"]+)"', f.read()).group(1)
 
 setup(
-    name="Radicale_IMAP",
-    version=version,
-    description="IMAP authentication plugin for Radicale",
-    author="Unrud",
-    author_email="unrud@openaliasbox.org",
-    url="http://github.com/Unrud/RadicaleIMAP",
-    license="GNU GPL v3",
-    platforms="Any",
-    packages=["radicale_imap"])
+    name='radicale-imap',
+    version='0.1.0',
+    author='Nikos Roussos',
+    author_email='nikos@roussos.cc',
+    url='https://gitlab.com/comzeradd/radicale-imap/',
+    description='Radicale IMAP authentication plugin',
+    include_package_data=True,
+    zip_safe=False,
+    packages=find_packages(),
+    install_requires=['radicale'],
+    license='LICENSE',
+    classifiers=[
+        'Development Status :: 5 - Production/Stable',
+        'Environment :: Console',
+        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python :: 3 :: Only',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+    ]
+)

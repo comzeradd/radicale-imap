@@ -1,29 +1,19 @@
-# Radicale IMAP
+# Radicale IMAP authentication plugin
 
 IMAP authentication plugin for [Radicale](http://radicale.org/).
+This is a simplification fork of [https://github.com/Unrud/RadicaleIMAP](RadicaleIMAP).
 
 ## Installation
 
-```shell
-$ python3 -m pip install --upgrade git+https://github.com/Unrud/RadicaleIMAP
-```
+    python3 -m pip install radicale-imap
 
 ## Configuration
 
-```ini
-[auth]
-type = radicale_imap
-
-# IMAP server host name
-# Syntax: address:port
-# For example: imap.server.tld
-#imap_host =
-
-# Use StartTLS to secure the connection
-# Requires Python >= 3.4
-#imap_secure = True
-```
+    [auth]
+    type = radicale_imap
+    imap_host = address:port
+    imap_secure = True
 
 ## License
 
-[GPL-3.0](https://github.com/Unrud/RadicaleIMAP/blob/master/COPYING)
+[GPL-3.0](LICENSE)
