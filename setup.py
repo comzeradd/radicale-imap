@@ -3,10 +3,10 @@ from setuptools import find_packages, setup
 
 setup(
     name='radicale-imap',
-    version='0.1.1',
+    version='0.1.2',
     author='Nikos Roussos',
     author_email='nikos@roussos.cc',
-    url='https://gitlab.com/libreops/radicale-imap/',
+    url='https://gitlab.com/comzeradd/radicale-imap/',
     description='Radicale IMAP authentication plugin',
     include_package_data=True,
     zip_safe=False,
