@@ -32,7 +32,7 @@ class Auth(BaseAuth):
     imap_secure = True
     """
 
-    def is_authenticated(self, user, password):
+    def login(self, user, password):
         # Parse configuration options
         host = ''
         if self.configuration.has_option('auth', 'imap_host'):
@@ -74,7 +74,7 @@ class Auth(BaseAuth):
         except imaplib.IMAP4.error as e:
             self.logger.debug(
                 'IMAP authentication failed: %s', e, exc_info=True)
-            return False
+            return ""
 
         connection.logout()
-        return True
+        return user
