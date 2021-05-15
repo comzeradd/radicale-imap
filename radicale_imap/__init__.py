@@ -20,6 +20,7 @@ import ssl
 
 from radicale.auth import BaseAuth
 from radicale.config import _convert_to_bool
+from radicale.log import logger
 
 
 class Auth(BaseAuth):
@@ -81,7 +82,7 @@ class Auth(BaseAuth):
         try:
             connection.login(user, password)
         except imaplib.IMAP4.error as e:
-            self.logger.debug(
+            logger.debug(
                 'IMAP authentication failed: %s', e, exc_info=True)
             return ""
 
