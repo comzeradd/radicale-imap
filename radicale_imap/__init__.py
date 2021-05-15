@@ -19,6 +19,7 @@ import imaplib
 import ssl
 
 from radicale.auth import BaseAuth
+from radicale.config import _convert_to_bool
 
 
 class Auth(BaseAuth):
@@ -34,12 +35,20 @@ class Auth(BaseAuth):
 
     def login(self, user, password):
         # Parse configuration options
-        host = ''
-        if self.configuration.has_option('auth', 'imap_host'):
+        try:
             host = self.configuration.get('auth', 'imap_host')
-        secure = True
-        if self.configuration.has_option('auth', 'imap_secure'):
-            secure = self.configuration.getboolean('auth', 'imap_secure')
+        except KeyError:
+            host = ''
+
+        try:
+            # Radicale only does bool conversion based on config schema
+            # and there seems to be no way for plugins to add items to
+            # the schema. To ensure consistent boolean parsing, this
+            # uses an internal function.
+            secure = _convert_to_bool(self.configuration.get('auth', 'imap_secure'))
+        except KeyError:
+            secure = True
+
         try:
             if ':' in host:
                 address, port = host.rsplit(':', maxsplit=1)
